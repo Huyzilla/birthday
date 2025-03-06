@@ -489,21 +489,23 @@ body {
     border-top: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.cake-section {
+.candle-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    width: 300px;
     text-align: center;
-    z-index: 2000;
-    transition: all 0.3s ease;
 }
+
 
 .cake-section.hidden {
     opacity: 0;
@@ -518,17 +520,24 @@ body {
 }
 
 .blow-instruction {
-    color: white;
-    font-size: 24px;
-    margin-bottom: 20px;
-    animation: pulse 1.5s infinite;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
 }
 
 .cake-box {
-    position: relative;
-    padding: 20px;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cake-top {
@@ -537,20 +546,14 @@ body {
 }
 
 .candles {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     gap: 15px;
-    z-index: 1;
 }
 
 .candle {
-    font-size: 40px;
+    font-size: 32px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.5));
+    transition: transform 0.3s ease-in-out;
 }
 
 .candle[data-lit="true"] {
@@ -562,6 +565,10 @@ body {
     opacity: 0.5;
     transform: scale(0.8);
     filter: none;
+}
+
+.candle:hover {
+    transform: scale(1.2);
 }
 
 @keyframes pulse {
